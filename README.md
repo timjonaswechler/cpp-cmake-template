@@ -209,7 +209,7 @@ While this project has been developed with cross-platform compatibility in mind,
 
 # 📝 License
 
-This project is licensed under the MIT License - see the [LICENSE](https://github.com/timjonaswechler/Chicken105/blob/main/LICENSE) file for details.
+This project is licensed under the MIT License - see the [LICENSE](https://github.com/timjonaswechler/cpp-cmake-template/blob/main/LICENSE) file for details.
 
 # 🛣️ Roadmap for Future Developments
 
