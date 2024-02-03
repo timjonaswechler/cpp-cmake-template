@@ -13,7 +13,7 @@ project(${CMAKE_PROJECT_NAME})
 # add_executable(DemoExecutable main.cpp)
 
 # Add subdirectories that might contain additional CMakeLists.txt files.
-# add_subdirectory(subfolder)
+add_subdirectory(Source)
 
 # Enable searching for and using libraries.
 # find_package(SomeLibrary REQUIRED)
