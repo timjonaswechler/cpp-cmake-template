@@ -1,11 +1,5 @@
 # CMake C++ Project Template
 
-Certainly! I'll revise the introduction section of your CMake C++ Project Template to enhance its clarity and professionalism:
-
----
-
-# CMake C++ Project Template
-
 ## 🚀 Introduction
 
 Welcome to my CMake C++ Project Template! This resource is designed to streamline the setup and management of C++ projects across various platforms, emphasizing cross-platform compatibility. Whether you're a seasoned developer or new to C++, this template offers a structured, user-friendly approach to project configuration and building, leveraging the power of CMake.
