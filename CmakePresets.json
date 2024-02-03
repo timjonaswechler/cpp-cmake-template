@@ -16,73 +16,79 @@
       }
     },
     {
-      "name": "macos_default",
-      "inherits": "default",
-      "displayName": "Default Config",
-      "description": "Default build using Unix Makefiles generator",
-      "generator": "Unix Makefiles",
-      "binaryDir": "${sourceDir}/build/default",
+      "name": "x64arm",
       "cacheVariables": {
         "CMAKE_OSX_ARCHITECTURES": "arm64"
       }
     },
     {
-      "inherits": "macos_default",
-      "name": "arm64_debug_macos",
-      "displayName": "ARM64 Debug MacOS",
-      "description": "ARM64 Debug MacOS",
-      "binaryDir": "${sourceDir}/build/arm64_debug_macos",
+      "name": "debug",
       "cacheVariables": {
         "CMAKE_BUILD_TYPE": "Debug"
       }
     },
     {
-      "inherits": "macos_default",
-      "name": "arm64_release_macos",
-      "displayName": "ARM64 Release MacOS",
-      "description": "ARM64 Release MacOS",
-      "binaryDir": "${sourceDir}/build/arm64_release_macos",
+      "name": "release",
       "cacheVariables": {
         "CMAKE_BUILD_TYPE": "Release"
       }
+    },
+    {
+      "name": "macos",
+      "inherits": "default",
+      "generator": "Unix Makefiles"      
+    },
+    {
+      "inherits": ["x64arm", "debug", "macos"],
+      "name": "x64arm_macos_debug",
+      "displayName": "x64arm Debug MacOS",
+      "description": "x64arm Debug MacOS",
+      "binaryDir": "${sourceDir}/build/${presetName}"
+    },
+    {
+      "inherits": ["x64arm", "release", "macos"],
+      "name": "x64arm_macos_release",
+      "displayName": "x64arm Release MacOS",
+      "description": "x64arm Release MacOS",
+      "binaryDir": "${sourceDir}/build/${presetName}"
     }
   ],
   "buildPresets": [
     {
-      "name": "build_arm64_debug_macos",
-      "configurePreset": "arm64_debug_macos",
-      "displayName": "ARM64 Debug MacOS"
+      "name": "x64arm_macos_debug",
+      "configurePreset": "x64arm_macos_debug",
+      "displayName": "x64arm Debug MacOS"
     },
     {
-      "name": "arm64_release_macos",
-      "configurePreset": "arm64_release_macos",
-      "displayName": "ARM64 Release MacOS"
+      "name": "x64arm_macos_release",
+      "configurePreset": "x64arm_macos_release",
+      "displayName": "x64arm Release MacOS"
     }
   ],
   "workflowPresets": [
     {
-      "name": "arm64_debug_macos",
+      "name": "x64arm_macos_debug",
       "steps": [
         {
           "type": "configure",
-          "name": "arm64_debug_macos"
+          "name": "x64arm_macos_debug"
         },
         {
           "type": "build",
-          "name": "build_arm64_debug_macos"
+          "name": "x64arm_macos_debug"
         }
       ]
     },
     {
-      "name": "arm64_release_macos",
+      "name": "x64arm_macos_release",
       "steps": [
         {
           "type": "configure",
-          "name": "arm64_release_macos"
+          "name": "x64arm_macos_release"
         },
         {
           "type": "build",
-          "name": "arm64_release_macos"
+          "name": "x64arm_macos_release"
         }
       ]
     }
