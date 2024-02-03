@@ -1,26 +1,90 @@
 {
-  "version": 3,
+  "version": 6,
   "cmakeMinimumRequired": {
     "major": 3,
-    "minor": 21,
-    "patch": 1
+    "minor": 23,
+    "patch": 0
   },
   "configurePresets": [
     {
-      "name": "Default",
-      "hidden": false,
-      "description": "Default preset",
-      "binaryDir": "${sourceDir}/build",
+      "name": "default",
       "cacheVariables": {
-        "CMAKE_BUILD_TYPE": "Debug",
-        "CMAKE_EXPORT_COMPILE_COMMANDS": "YES"
+        "CMAKE_PROJECT_NAME": "MeinNeuesProjekt",
+        "CMAKE_PROJECT_VERSION": "2024.02.af43b",
+        "CMAKE_CXX_STANDARD": "20",
+        "CMAKE_CXX_STANDARD_REQUIRED": "ON"
+      }
+    },
+    {
+      "name": "macos_default",
+      "inherits": "default",
+      "displayName": "Default Config",
+      "description": "Default build using Unix Makefiles generator",
+      "generator": "Unix Makefiles",
+      "binaryDir": "${sourceDir}/build/default",
+      "cacheVariables": {
+        "CMAKE_OSX_ARCHITECTURES": "arm64"
+      }
+    },
+    {
+      "inherits": "macos_default",
+      "name": "arm64_debug_macos",
+      "displayName": "ARM64 Debug MacOS",
+      "description": "ARM64 Debug MacOS",
+      "binaryDir": "${sourceDir}/build/arm64_debug_macos",
+      "cacheVariables": {
+        "CMAKE_BUILD_TYPE": "Debug"
+      }
+    },
+    {
+      "inherits": "macos_default",
+      "name": "arm64_release_macos",
+      "displayName": "ARM64 Release MacOS",
+      "description": "ARM64 Release MacOS",
+      "binaryDir": "${sourceDir}/build/arm64_release_macos",
+      "cacheVariables": {
+        "CMAKE_BUILD_TYPE": "Release"
       }
     }
   ],
   "buildPresets": [
     {
-      "name": "Default",
-      "configurePreset": "Default"
+      "name": "build_arm64_debug_macos",
+      "configurePreset": "arm64_debug_macos",
+      "displayName": "ARM64 Debug MacOS"
+    },
+    {
+      "name": "arm64_release_macos",
+      "configurePreset": "arm64_release_macos",
+      "displayName": "ARM64 Release MacOS"
+    }
+  ],
+  "workflowPresets": [
+    {
+      "name": "arm64_debug_macos",
+      "steps": [
+        {
+          "type": "configure",
+          "name": "arm64_debug_macos"
+        },
+        {
+          "type": "build",
+          "name": "build_arm64_debug_macos"
+        }
+      ]
+    },
+    {
+      "name": "arm64_release_macos",
+      "steps": [
+        {
+          "type": "configure",
+          "name": "arm64_release_macos"
+        },
+        {
+          "type": "build",
+          "name": "arm64_release_macos"
+        }
+      ]
     }
   ]
 }
