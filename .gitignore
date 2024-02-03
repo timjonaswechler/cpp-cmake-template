@@ -1,3 +1,13 @@
+# Build Process
+.build
+.bin
+build
+bin
+
+# ------- vscode -------
+.vscode
+
+# ------- C++ -------
 # Prerequisites
 *.d
 
