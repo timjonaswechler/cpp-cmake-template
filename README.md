@@ -25,28 +25,28 @@ This project provides a versatile CMake template designed to simplify the setup 
 - [📝 License](#-license)
 - [TODO](#todo)
 
-## 🛠️ Setup and Usage Guide
+# 🛠️ Setup and Usage Guide
 
 This section will guide you through the initial steps to get your C++ project up and running using this CMake template.
 
-### General Information on CMake
+## General Information on CMake
 
-#### CMakeLists
+### CMakeLists
 
 The `CMakeLists.txt` file is the main configuration file for CMake. It contains the instructions for CMake to build your project. This file is used to specify the project name, version, and the source files to be compiled. It also includes the configuration settings for the build process, such as compiler flags, build type, and output directories. For more information on CMakeLists, refer to the [official CMake documentation](https://cmake.org/cmake/help/latest/manual/cmake-language.7.html).
 
-#### CMakePresets
+### CMakePresets
 
 The `CMakePresets.json` file is a configuration file used in CMake to define build presets, which are a way to specify a collection of CMake settings in a structured and sharable format. This file is particularly useful for larger projects or when working in a team, as it helps ensure a consistent configuration across different environments. For more information on CMakePresets, refer to the [official CMake documentation](https://cmake.org/cmake/help/latest/manual/cmake-presets.7.html).
 
-### ⚙️ Prerequisites
+## ⚙️ Prerequisites
 
 Before you begin, ensure you have the following installed:
 
 * CMake (version 3.27.6 or higher)
 * A suitable C++ compiler (e.g., GCC, Clang or MSVC for Windows)
 
-### Cloning the Repository
+## Cloning the Repository
 
 Start by cloning this repository to your local machine. Use the following command:
 
@@ -54,7 +54,7 @@ Start by cloning this repository to your local machine. Use the following comman
 git clone https://github.com/timjonaswechler/cpp-cmake-template.git
 ```
 
-### Configuring the Project
+## Configuring the Project
 
 In the `CMakePresets.json` file, you can define different variables under the `configurePresets` section. There is a preset called `default` that is used as a starting point. This preset contains the cache variables that are used to configure the project.
 this variable get passed to the `CMakeLists.txt` file and can be used to configure the project. You can access these variables using the value of the variable with `${<variable_name>}` in the `CMakeLists.txt` file.
@@ -74,7 +74,7 @@ further down in the `CMakePresets.json` file you can more cache variables like:
 
 Later on i will add more cache variables to configure the project or you can do it yourself as you need.
 
-### Placeholder Values for Configurations
+## Placeholder Values for Configurations
 
 In the following instructions, placeholders `{arch}`, `{os}`, and `{build}` are used. These can be replaced with the corresponding values from the table below.
 
@@ -84,7 +84,7 @@ In the following instructions, placeholders `{arch}`, `{os}`, and `{build}` are 
 | **`{os}`**    | `macos`              | `linux`, `windows` |
 | **`{build}`** | `debug`, `release` | `dist`               |
 
-### Building the Project with CMake Workflow
+## Building the Project with CMake Workflow
 
 To build the project using the CMake workflow for a specific configuration, run the following command:
 
@@ -94,7 +94,7 @@ cmake --workflow --preset {arch}_{os}_{build}
 
 Replace `{arch}_{os}_{build}` with your desired build configuration (e.g., `x64arm_macos_debug`, `x64arm_macos_release`). This command will configure and build the project for the specified configuration on macOS using the specified CMake preset.
 
-### Clean Build Directory
+## Clean Build Directory
 
 To clean the build artifacts for a specific configuration, use the following command:
 
@@ -104,7 +104,7 @@ rm -rf build/{arch}_{os}_{build}
 
 Replace `{arch}_{os}_{build}` with your desired build configuration (e.g., `x64arm_macos_debug`, `x64arm_macos_release`). This command will remove all build artifacts for the specified configuration on macOS.
 
-### Running applicaiton
+## Running applicaiton
 
 To run the application you found the executable in the build directory under the following path:
 
@@ -112,7 +112,7 @@ To run the application you found the executable in the build directory under the
 ./build/{arch}_{os}_{build}/
 ```
 
-## Template tested on
+# Template tested on
 
 The template has been tested on the following configurations:
 
@@ -121,15 +121,15 @@ The template has been tested on the following configurations:
 * **Processor Architecture**: x64arm
 * **Build System Generator**: Unix Makefiles
 
-### Compatibility Note
+## Compatibility Note
 
 While the project has been tested with the specific configurations listed above, it is designed to be compatible with a variety of environments and setups. Users are encouraged to test and adapt the project in different environments and share feedback or issues encountered. This will aid in enhancing the project's compatibility and robustness across diverse systems.
 
-## 📝 License
+# 📝 License
 
 This project is licensed under the MIT License - see the [LICENSE](https://github.com/timjonaswechler/Chicken105/blob/main/LICENSE) file for details.
 
-## TODO
+# TODO
 
 * [ ] **Clarify Different Output Formats:** For Windows users, who typically work with Visual Studio, ensure instructions are available for generating a `.sln` file via CMake. Linux users predominantly use Makefiles, so ensure the output format includes Makefile generation. For MacOS users, provide guidance for generating either Makefiles or `.xcodeproj` files, as they may use either MakeFiles or XCode.
 * [ ] **Detailing Overriding of CMakeLists.txt via CMakePresets.json:** Emphasize that settings in `CMakeLists.txt` can be superseded by configurations in `CMakePresets.json`. Ensure this capability is clearly documented for users to understand how to customize their build process.
