@@ -21,17 +21,32 @@ This template serves as a starting point for C++ projects, providing pre-configu
 
 - [🚀 Introduction](#-introduction)
     - [What is CMake?](#what-is-cmake)
+- [🛠️ Setup and Usage Guide](#️-setup-and-usage-guide)
+    - [General Information on CMake](#general-information-on-cmake)
+        - [CMakeLists](#cmakelists)
+        - [CMakePresets](#cmakepresets)
+    - [Prerequisites](#prerequisites)
+    - [Cloning the Repository](#cloning-the-repository)
+    - [Configuring the Project](#configuring-the-project)
+    - [Building the Project with CMake Workflow](#building-the-project-with-cmake-workflow)
+        - [Placeholder Values for Configurations](#placeholder-values-for-configurations)
+    - [Clean Build Directory](#clean-build-directory)
+    - [Running the Application](#running-the-application)
+- [Template tested on](#template-tested-on)
+- [📝 License](#-license)
+- [🛣️ Roadmap for Future Developments](#️-roadmap-for-future-developments)
+
 
 
 Absolutely! Let's expand on the **CMakeLists and CMakePresets Sections** with examples and further explanations to enhance understanding.
 
 ---
 
-## 🛠️ Setup and Usage Guide
+# 🛠️ Setup and Usage Guide
 
-### General Information on CMake
+## General Information on CMake
 
-#### CMakeLists
+### CMakeLists
 
 The `CMakeLists.txt` file is the centerpiece of a CMake project. It defines how your project is built and includes directives and instructions that tell CMake how to organize the build process. Here's a simple example to illustrate:
 
@@ -48,7 +63,7 @@ add_executable(MyAwesomeProject main.cpp)
 In this example, the `cmake_minimum_required` command specifies the minimum version of CMake required. The `project` command names your project and sets its version. The C++ standard is set using `set(CMAKE_CXX_STANDARD 17)`. Finally, `add_executable` tells CMake to create an executable named `MyAwesomeProject` from the source file `main.cpp`. For more information on CMakeLists, refer to the [official CMake documentation](https://cmake.org/cmake/help/latest/manual/cmake-language.7.html).
 
 
-#### CMakePresets
+### CMakePresets
 
 The `CMakePresets.json` file streamlines the configuration of CMake projects across different environments and platforms. It allows you to define preset configurations that can be used to easily switch between different build setups. Here's a basic example:
 
@@ -145,16 +160,14 @@ this variable get passed to the `CMakeLists.txt` file and can be used to configu
 
 ## Building the Project with CMake Workflow
 
-Building your project is done using CMake commands. Here's how to do it:
+To build the project using the CMake workflow for a specific configuration, run the following command:
 
-1. **Open a Terminal or Command Prompt:**
-   - Navigate to your project's root directory.
+```shell
+cmake --workflow --preset {arch}_{os}_{build}
+```
 
-2. **Run the CMake Workflow Command:**
-   - Use the command `cmake --build --preset {arch}_{os}_{build}`. Replace `{arch}_{os}_{build}` with your specific configuration, such as `x64arm_macos_debug`.
+Replace `{arch}_{os}_{build}` with your desired build configuration (e.g., `x64arm_macos_debug`, `x64arm_macos_release`). This command will configure and build the project for the specified configuration on macOS using the specified CMake preset.
 
-3. **Wait for the Build to Complete:**
-   - CMake will configure and build your project based on the preset you chose.
 
 ### Placeholder Values for Configurations
 
@@ -167,17 +180,6 @@ In this template, placeholders such as `{arch}`, `{os}`, and `{build}` are used 
 | `{build}`    | Represents the type of build you are performing. | `debug`, `release`, `MinSizeRel`      |
 
 For example, if you are building a debug version of the project on a macOS system with an ARM architecture, you would replace `{arch}_{os}_{build}` with `arm_macos_debug`.
-
-## Building the Project with CMake Workflow
-
-To build the project using the CMake workflow for a specific configuration, run the following command:
-
-```shell
-cmake --workflow --preset {arch}_{os}_{build}
-```
-
-Replace `{arch}_{os}_{build}` with your desired build configuration (e.g., `x64arm_macos_debug`, `x64arm_macos_release`). This command will configure and build the project for the specified configuration on macOS using the specified CMake preset.
-
 
 ## Clean Build Directory
 
