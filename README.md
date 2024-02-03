@@ -163,7 +163,7 @@ In this template, placeholders such as `{arch}`, `{os}`, and `{build}` are used 
 
 | Placeholder  | Description                                      | Possible Values                       |
 |--------------|--------------------------------------------------|---------------------------------------|
-| `{arch}`     | Refers to the processor architecture.            | `x64`, `arm`, `x86`                   |
+| `{arch}`     | Refers to the processor architecture.            | `x64`, `x64arm`, `x86`                   |
 | `{os}`       | Indicates the operating system.                  | `macos`, `linux`, `windows`           |
 | `{build}`    | Represents the type of build you are performing. | `debug`, `release`, `MinSizeRel`      |
 
