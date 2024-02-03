@@ -30,12 +30,6 @@ This template serves as a starting point for C++ projects, providing pre-configu
 - [📝 License](#-license)
 - [🛣️ Roadmap for Future Developments](#️-roadmap-for-future-developments)
 
-
-
-Absolutely! Let's expand on the **CMakeLists and CMakePresets Sections** with examples and further explanations to enhance understanding.
-
----
-
 # 🛠️ Setup and Usage Guide
 
 ## General Information on CMake
