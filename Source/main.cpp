@@ -10,6 +10,6 @@
 
 int main() {
     // Your code here
-    std::cout << "Welcome to " << PROJECT_NAME << " Version: "<< PROJECT_VERSION << std::endl;
+    std::cout << "Welcome to " << PROJECT_NAME << " Version: " << PROJECT_VERSION << std::endl;
     return 0;
 }

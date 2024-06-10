@@ -17,24 +17,28 @@
     },
     {
       "name": "vscode",
+      "inherits": "default",
       "cacheVariables": {
         "COMPILE_VSCODE": "ON"
       }
     },
     {
       "name": "x64arm",
+      "inherits": "default",
       "cacheVariables": {
         "CMAKE_OSX_ARCHITECTURES": "arm64"
       }
     },
     {
       "name": "debug",
+      "inherits": "default",
       "cacheVariables": {
         "CMAKE_BUILD_TYPE": "Debug"
       }
     },
     {
       "name": "release",
+      "inherits": "default",
       "cacheVariables": {
         "CMAKE_BUILD_TYPE": "Release"
       }
@@ -42,7 +46,7 @@
     {
       "name": "macos",
       "inherits": "default",
-      "generator": "Unix Makefiles"      
+      "generator": "Unix Makefiles"
     },
     {
       "inherits": ["x64arm", "debug", "macos", "vscode"],

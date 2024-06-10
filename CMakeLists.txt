@@ -4,11 +4,26 @@
 # The variables CMAKE_PROJECT_NAME, CMAKE_PROJECT_VERSION, CMAKE_CXX_STANDARD, and CMAKE_CXX_STANDARD_REQUIRED
 # are expected to be set in the CmakePresets.json file.
 cmake_minimum_required(VERSION 3.21)
-project(${CMAKE_PROJECT_NAME})
+project(${CMAKE_PROJECT_NAME} VERSION ${CMAKE_PROJECT_VERSION})
 
-# Define preprocessor directives
+# Check and define PROJECT_NAME
+if(NOT DEFINED CMAKE_PROJECT_NAME)
+  message(FATAL_ERROR "CMAKE_PROJECT_NAME is not defined")
+endif()
+
 add_compile_definitions(PROJECT_NAME="${CMAKE_PROJECT_NAME}")
+
+message(STATUS "ProjectName is ${CMAKE_PROJECT_NAME}")
+
+# Check and define PROJECT_VERSION
+if(NOT DEFINED CMAKE_PROJECT_VERSION)
+  message(FATAL_ERROR "CMAKE_PROJECT_VERSION is not defined")
+endif()
+ 
 add_compile_definitions(PROJECT_VERSION="${CMAKE_PROJECT_VERSION}")
+
+message(STATUS "ProjectVersion is ${CMAKE_PROJECT_VERSION}")
+
 
 # Add a directory to the search path for header files.
 # include_directories(${CMAKE_SOURCE_DIR}/include)
@@ -30,9 +45,10 @@ add_subdirectory(Source)
 
 # Configure tasks.json file
 if(COMPILE_VSCODE)
+    message(STATUS "COMPILE_VSCODE is ON")
     configure_file(
-    ${CMAKE_SOURCE_DIR}/.vscode/tasks.json.in
-    ${CMAKE_SOURCE_DIR}/.vscode/tasks.json
-    @ONLY
+        ${CMAKE_SOURCE_DIR}/.vscode/tasks.json.in
+        ${CMAKE_SOURCE_DIR}/.vscode/tasks.json
+        @ONLY
     )
 endif()
