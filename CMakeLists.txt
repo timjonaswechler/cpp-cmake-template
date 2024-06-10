@@ -29,8 +29,10 @@ add_subdirectory(Source)
 # target_compile_options(DemoExecutable PRIVATE -Wall -Wextra -O3)
 
 # Configure tasks.json file
-configure_file(
-  ${CMAKE_SOURCE_DIR}/.vscode/tasks.json.in
-  ${CMAKE_SOURCE_DIR}/.vscode/tasks.json
-  @ONLY
-)
+if(COMPILE_VSCODE)
+    configure_file(
+    ${CMAKE_SOURCE_DIR}/.vscode/tasks.json.in
+    ${CMAKE_SOURCE_DIR}/.vscode/tasks.json
+    @ONLY
+    )
+endif()

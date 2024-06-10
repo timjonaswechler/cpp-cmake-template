@@ -16,6 +16,12 @@
       }
     },
     {
+      "name": "vscode",
+      "cacheVariables": {
+        "COMPILE_VSCODE": "ON"
+      }
+    },
+    {
       "name": "x64arm",
       "cacheVariables": {
         "CMAKE_OSX_ARCHITECTURES": "arm64"
@@ -39,14 +45,14 @@
       "generator": "Unix Makefiles"      
     },
     {
-      "inherits": ["x64arm", "debug", "macos"],
+      "inherits": ["x64arm", "debug", "macos", "vscode"],
       "name": "x64arm_macos_debug",
       "displayName": "x64arm Debug MacOS",
       "description": "x64arm Debug MacOS",
       "binaryDir": "${sourceDir}/build/${presetName}"
     },
     {
-      "inherits": ["x64arm", "release", "macos"],
+      "inherits": ["x64arm", "release", "macos", "vscode"],
       "name": "x64arm_macos_release",
       "displayName": "x64arm Release MacOS",
       "description": "x64arm Release MacOS",
