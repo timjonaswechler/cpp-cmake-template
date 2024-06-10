@@ -6,6 +6,10 @@
 cmake_minimum_required(VERSION 3.21)
 project(${CMAKE_PROJECT_NAME})
 
+# Define preprocessor directives
+add_compile_definitions(PROJECT_NAME="${CMAKE_PROJECT_NAME}")
+add_compile_definitions(PROJECT_VERSION="${CMAKE_PROJECT_VERSION}")
+
 # Add a directory to the search path for header files.
 # include_directories(${CMAKE_SOURCE_DIR}/include)
 
@@ -23,3 +27,10 @@ add_subdirectory(Source)
 
 # Optional compiler flags for additional optimizations or warnings.
 # target_compile_options(DemoExecutable PRIVATE -Wall -Wextra -O3)
+
+# Configure tasks.json file
+configure_file(
+  ${CMAKE_SOURCE_DIR}/.vscode/tasks.json.in
+  ${CMAKE_SOURCE_DIR}/.vscode/tasks.json
+  @ONLY
+)
