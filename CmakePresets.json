@@ -9,8 +9,8 @@
     {
       "name": "default",
       "cacheVariables": {
-        "CMAKE_PROJECT_NAME": "MeinNeuesProjekt",
-        "CMAKE_PROJECT_VERSION": "2024.02.af43b",
+        "CMAKE_PROJECT_NAME": "GRANDMA28",
+        "CMAKE_PROJECT_VERSION": "2024.06.03",
         "CMAKE_CXX_STANDARD": "20",
         "CMAKE_CXX_STANDARD_REQUIRED": "ON"
       }
